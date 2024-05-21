@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,5 +45,46 @@ public class MainActivity extends AppCompatActivity {
         medida1.setAdapter(adapter);
         medida2.setAdapter(adapter);
 
+        conversor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // aqui ele obtem o texto e converte a string para uma double com parsedouble.
+                double input = Double.parseDouble(valorDoAtributo.getText().toString());
+                // aqui ele obtem o item selecionado e converte para uma string
+                String deMedida1 = medida1.getSelectedItem().toString();
+                String paraMedida2 = medida2.getSelectedItem().toString();
+                double result = conversoDeMedidas(input,deMedida1,paraMedida2);
+                resultado.setText(String.valueOf(result));
+
+            }
+        });
+
+        }
+
+        private double conversoDeMedidas(double valor, String deMedida1, String paraMedida2){
+            double valorEmMetros = valor;
+            switch (deMedida1) {
+                case "centímetros":
+                    valorEmMetros = valor / 100.0;
+                    break;
+                case "quilômetros":
+                    valorEmMetros = valor * 1000.0;
+                    break;
+                case "milhas":
+                    valorEmMetros = valor * 1609.34;
+                    break;
+            }
+            switch (paraMedida2){
+                case "centímetros":
+                    return valorEmMetros = valor * 100.0;
+                case "quilômetros":
+                    return valorEmMetros = valor / 1000.0;
+                case "milhas":
+                    return valorEmMetros = valor / 1609.34;
+
+                    //aqui retorna o valor de origem pois não vai ser possivel converter
+                default:
+                    return valorEmMetros;
+            }
         }
     }
