@@ -24,23 +24,26 @@
 
     <Spinner
         android:id="@+id/spinner_unidade2"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginTop="16dp" />
+        android:layout_width="379dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="16dp"
+        android:entries="@array/spinner_unidades1" />
 
     <Button
         android:id="@+id/convert_button"
-        android:layout_width="193dp"
-        android:layout_height="74dp"
-        android:layout_marginTop="16dp"
-        android:text="Converter" />
+        android:layout_width= "match_parent"
+        android:layout_height="wrap_content"
+        android:text="Converter"
+        android:layout_marginTop="40dp"
+        android:gravity="center" />
 
     <TextView
         android:id="@+id/result_text"
         android:layout_width="match_parent"
         android:layout_height="140dp"
         android:layout_marginTop="16dp"
-        android:text="Result"
+        android:text="Resultado"
+        android:gravity="center"
         android:textSize="18sp" />
 
 </LinearLayout>
